@@ -14,7 +14,7 @@ app.get('/ui/style.css', function (req, res) {
 });
 
 app.get('/article-one', function (req, res) {
-  res.send("The first article will be provided here");
+ res.sendFile(path.join(__dirname, 'ui', 'home-header.html'));
 });
 
 app.get('/article-two', function (req, res) {
