@@ -5,67 +5,76 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
- "article-one":   {
-    title: "Article One",
-    heading: "Article One",
-    Content: "Content for the page goes here.This is my first article."
-                },
- "article-two":   {
-     title: "Article Two",
-    heading: "Article Two",
-    Content: "Content for the page goes here.This is my Second article."
- },
- "article-three": {
-     title: "Article Three",
-    heading: "Article Three",
-    Content: "Content for the page goes here.This is my Third article."
- }
-};
-
-function createTemplate (data){
-var title=data.title;
-var heading= data.heading;
-var content= data.Content;
-var htmltemplate =
-    `<html>
-    <head>
-        <title>
-            ${title}
-        </title>
-        <link href="/ui/style.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-        <body>
-            <div class=container>
-            <div>
-            <a href="/">Home</a>
-            </div>
+    var articles = {
+     "article-one":   {
+        title: "Article One",
+        heading: "Article One",
+        Content: "Content for the page goes here.This is my first article."
+                    },
+     "article-two":   {
+         title: "Article Two",
+        heading: "Article Two",
+        Content: "Content for the page goes here.This is my Second article."
+     },
+     "article-three": {
+         title: "Article Three",
+        heading: "Article Three",
+        Content: "Content for the page goes here.This is my Third article."
+     }
+    };
+    
+    function createTemplate (data){
+    var title=data.title;
+    var heading= data.heading;
+    var content= data.Content;
+    var htmltemplate =
+        `<html>
+        <head>
+            <title>
+                ${title}
+            </title>
+            <link href="/ui/style.css" rel="stylesheet" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </head>
+            <body>
+                <div class=container>
                 <div>
-                <h3>
-                ${heading}
-                </h3>
-                    <p>
-                       ${content}
-                    </p>
+                <a href="/">Home</a>
                 </div>
-            </div>    
-        </body>
-    </html>
-`;
-        return htmltemplate;
-}
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+                    <div>
+                    <h3>
+                    ${heading}
+                    </h3>
+                        <p>
+                           ${content}
+                        </p>
+                    </div>
+                </div>    
+            </body>
+        </html>
+    `;
+            return htmltemplate;
+    }
+        app.get('/', function (req, res) 
+        {
+          res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+        });
 
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
+        app.get('/ui/style.css', function (req, res) 
+        {
+          res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+        });
 
-app.get('/ui/main.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
-});
+        app.get('/ui/main.js', function (req, res) {
+          res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+        });
+
+                    var counter = 0;
+                    app.get('/counter', function (req, res)
+                    {
+                    counter = counter + 1;
+                    res.send(counter.toString());
+                    });
 
 app.get('/:articleName', function (req, res) {
  //res.sendFile(path.join(__dirname, 'ui', 'header-home.html'));
