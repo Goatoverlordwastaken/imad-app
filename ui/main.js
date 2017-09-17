@@ -9,7 +9,7 @@ button.onclick = function () {
 };
 */
 
-var button = document.getElementByID('counter');
+var button = document.getElementById('counter');
 button.onclick = function () {
     //making request object
     var request = new XMLHttpRequest();
