@@ -20,7 +20,7 @@ img.onclick = function () {
 
 
 
-var button = document.getElementByID("counter");
+var button = document.getElementByID('counter');
 button.onClick = function () {
     //making request object
     var request = XMLHttpRequest();
