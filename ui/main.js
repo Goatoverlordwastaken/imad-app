@@ -17,9 +17,15 @@ function moveRight() {
 img.onclick = function () {
     var interval = setInterval(moveRight, 50);
 };
+var button = document.getElementByID('counter');
+var counter = 0;
+button.onClick = function () {
+    counter = counter + 1;
+    var span = document.getElementById('count');
+               span.innerHTML = counter.toString();
+};
 
-
-
+/*
 var button = document.getElementByID('counter');
 button.onClick = function () {
     //making request object
@@ -40,4 +46,4 @@ button.onClick = function () {
     //make the request
     request.open('GET', 'http://pveleneni.imad.hasura-app.io/counter', true);
     request.send(null);
-};
+};*/
