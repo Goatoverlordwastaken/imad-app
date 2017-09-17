@@ -17,6 +17,7 @@ function moveRight() {
 img.onclick = function () {
     var interval = setInterval(moveRight, 50);
 }; */
+console.log("JS Loaded")
 var button = document.getElementById('counter');
 var counter = 0;
 button.onClick = function () {
