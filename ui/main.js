@@ -1,4 +1,4 @@
-console.log('Loaded!');
+/*console.log('Loaded!');
 
 //changing text in the index 
 
@@ -16,7 +16,7 @@ function moveRight() {
 }
 img.onclick = function () {
     var interval = setInterval(moveRight, 50);
-};
+}; */
 var button = document.getElementById('counter');
 var counter = 0;
 button.onClick = function () {
